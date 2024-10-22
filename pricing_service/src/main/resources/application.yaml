@@ -1,0 +1,16 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/priceService
+    username: postgres
+    password: 123456789
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
