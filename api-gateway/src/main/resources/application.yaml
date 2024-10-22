@@ -1,0 +1,31 @@
+server:
+  port: 8083
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth-route
+          uri: http://localhost:8081
+          predicates:
+            - Path=/v1/auth/**
+        - id: prices-route
+          uri: http://localhost:8082
+          predicates:
+            - Path=/v1/prices/**
+        - id: brands-route
+          uri: http://localhost:8082
+          predicates:
+            - Path=/v1/brands/**
+        - id: products-route
+          uri: http://localhost:8082
+          predicates:
+            - Path=/v1/products/**
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
